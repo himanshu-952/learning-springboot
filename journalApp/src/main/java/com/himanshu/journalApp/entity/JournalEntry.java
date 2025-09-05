@@ -1,5 +1,6 @@
 package com.himanshu.journalApp.entity;
 
+import jakarta.annotation.Nonnull;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.types.ObjectId;
@@ -18,8 +19,11 @@ public class JournalEntry {
   @Id
     private ObjectId id;
     private LocalDateTime time;
+    @Nonnull
     private String Title;
+    @Nonnull
     private String Content;
-
+    @Nonnull
+  private String sentimentAnalysis;
 
 }

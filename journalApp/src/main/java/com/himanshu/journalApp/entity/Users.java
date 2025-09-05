@@ -30,7 +30,7 @@ public class Users {
 
     private String email;
 
-    private boolean sentimentAnalysis;
+
 
     private String role;
 
