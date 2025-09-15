@@ -19,11 +19,11 @@ public class JournalEntry {
   @Id
     private ObjectId id;
     private LocalDateTime time;
-    @Nonnull
+
     private String Title;
-    @Nonnull
+
     private String Content;
-    @Nonnull
+
   private String sentimentAnalysis;
 
 }

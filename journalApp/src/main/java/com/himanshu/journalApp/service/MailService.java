@@ -12,9 +12,9 @@ public class MailService {
 
     public void sendMail(String to , String subject , String body){
         SimpleMailMessage message= new SimpleMailMessage();
-        message.setTo(to);                 // recipient
-        message.setSubject(subject);            // subject
-        message.setText(body);                  // body
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(body);
 
         javaMailSender.send(message);
 

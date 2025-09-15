@@ -3,6 +3,7 @@ package com.himanshu.journalApp.service;
 import com.himanshu.journalApp.entity.JournalEntry;
 import com.himanshu.journalApp.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -12,18 +13,14 @@ import java.util.Map;
 
 @Service
 public class SentimentService {
-    @Autowired
-    private UserRepoService userRepoService;
 
-    @Autowired
-    private JournalEntryService journalEntryService;
 
     HashMap<String, Integer> sentimentMap;
 
-    public String getSentiment(Users user) {
+    public String getSentiment(Users currUser) {
         try {
             sentimentMap = new HashMap<>();
-            Users currUser = userRepoService.getUserByName(user.getUsername());
+
             List<JournalEntry> list = currUser.getListByUser().stream().filter(x -> x.getTime().isAfter(LocalDateTime.now().minusWeeks(1))).toList();
             for (JournalEntry entry : list) {
                 sentimentMap.put(entry.getSentimentAnalysis(), sentimentMap.getOrDefault(entry.getSentimentAnalysis(), 0) + 1);
